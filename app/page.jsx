@@ -1,8 +1,6 @@
-"use client";
 import React from "react";
 import TicketCard from "./(components)/TicketCard";
 import { getServerSession } from "next-auth";
-import { useSession } from "next-auth/react";
 
 import { headers } from "next/headers";
 
@@ -23,8 +21,8 @@ const getTickets = async () => {
   }
 };
 
-const Dashboard = async () => {
-  const { data: session } = useSession();
+const Dashboard = async (req) => {
+  const session = getServerSession(req);
   const role = session?.user.role;
   const email = session?.user.email;
 
