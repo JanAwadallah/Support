@@ -11,7 +11,7 @@ export async function GET(req) {
         const tickets = await Ticket.find();
         return NextResponse.json({ tickets }, { status: 200 });
       } else {
-        const email = req.nextUrl.searchParams.get("usremail");
+        const email = session ? session.user.email : "";
 
         const tickets = await Ticket.find({ userEmail: email });
         return NextResponse.json({ tickets }, { status: 200 });

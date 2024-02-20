@@ -9,14 +9,11 @@ const getTickets = async () => {
   const email = session?.user.role !== "admin" ? session?.user.email : "";
 
   try {
-    const res = await fetch(
-      `https://support.edgewatermc.com.au/api/Tickets?usremail=${email}`,
-      {
-        cache: "no-store",
-        method: "GET",
-        headers: headers(),
-      }
-    );
+    const res = await fetch(`https://support.edgewatermc.com.au/api/Tickets`, {
+      cache: "no-store",
+      method: "GET",
+      headers: headers(),
+    });
 
     if (!res.ok) {
       throw new Error("Failed to fetch tickets");
