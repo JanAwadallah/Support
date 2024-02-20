@@ -8,9 +8,9 @@ import { signIn, useSession } from "next-auth/react";
 function LoginForm() {
   const router = useRouter();
   const { data: session } = useSession();
-  // if (session?.user) {
-  //   router.replace("/");
-  // }
+  if (session?.user) {
+    router.replace("/");
+  }
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

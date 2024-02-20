@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 
 const getTickets = async () => {
   const session = await getServerSession();
+  console.log(session.user);
   const email = session?.user.role !== "admin" ? session?.user.email : "";
 
   try {
