@@ -13,9 +13,12 @@ const DeleteBlock = ({ id }) => {
     if (session.user.role === "admin") {
       let text = "Are you sure you want to delete the ticket";
       if (confirm(text) == true) {
-        const res = await fetch(`http://localhost:3000/api/Tickets/${id}`, {
-          method: "DELETE",
-        });
+        const res = await fetch(
+          `https://support.edgewatermc.com.au/api/Tickets/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
         if (res.ok) {
           router.refresh();
         }
