@@ -34,6 +34,7 @@ function LoginForm() {
 
       if (res.ok) {
         setAuthorised(true);
+        router.replace("/");
       } else if (res.error) {
         setError(res.error);
         return;
