@@ -250,7 +250,7 @@ const EditTicketForm = ({ ticket }) => {
           <input
             type="submit"
             className="btn max-w-xs"
-            value={EDITMODE ? "Update Ticket" : "Create Ticket"}
+            value={EDITMODE ? "Update" : "Create"}
           />
           <input
             className="btn max-w-xs"
