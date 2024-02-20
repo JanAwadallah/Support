@@ -24,7 +24,7 @@ const Dashboard = async () => {
   const session = await getServerSession();
 
   const role = session?.user.role;
-  const email = session?.user.role;
+  const email = session?.user.email;
 
   const data = await getTickets();
 
@@ -42,7 +42,7 @@ const Dashboard = async () => {
   return (
     <div className="p-5">
       <div>
-        <h1>role: {role}</h1>
+        <h1>role: {session?.user.role}</h1>
         {tickets && tickets.length > 0 ? (
           uniqueCategories?.map((uniqueCategory, categoryIndex) => (
             <div key={categoryIndex} className="mb-4">
