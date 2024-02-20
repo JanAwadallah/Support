@@ -4,29 +4,15 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/route";
 
 export async function GET(req) {
-  const session = await getServerSession(authOptions);
-  if (session) {
-    try {
-      if (session.user.role === "admin") {
-        const tickets = await Ticket.find();
-        return NextResponse.json({ tickets }, { status: 200 });
-      } else {
-        const email = session ? session.user.email : "";
-
-        const tickets = await Ticket.find({ userEmail: email });
-        return NextResponse.json({ tickets }, { status: 200 });
-      }
-    } catch (err) {
-      console.log(err);
-      return NextResponse.json({ message: "Error", err }, { status: 500 });
-    }
-  } else {
-    return NextResponse.json(
-      { message: "Error: Not Authorized" },
-      { status: 500 }
-    );
+  try {
+    const tickets = await Ticket.find();
+    return NextResponse.json({ tickets }, { status: 200 });
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 }
+
 export async function POST(req) {
   try {
     const body = await req.json();

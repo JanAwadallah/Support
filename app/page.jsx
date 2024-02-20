@@ -4,15 +4,15 @@ import { getServerSession } from "next-auth";
 import { headers } from "next/headers";
 
 const getTickets = async () => {
-  // const session = await getServerSession();
-  // console.log(session.user);
-  // const email = session?.user.role !== "admin" ? session?.user.email : "";
+  const session = await getServerSession();
+
+  const role = session?.user.role;
+  const email = session?.user.role;
 
   try {
     const res = await fetch(`https://support.edgewatermc.com.au/api/Tickets`, {
       cache: "no-store",
       method: "GET",
-      headers: headers(),
     });
 
     if (!res.ok) {
@@ -27,7 +27,7 @@ const getTickets = async () => {
 
 const Dashboard = async () => {
   const data = await getTickets();
-
+  console.log(data);
   // Make sure we have tickets needed for production build.
   if (!data?.tickets) {
     return <p>No tickets.</p>;
@@ -47,15 +47,29 @@ const Dashboard = async () => {
             <div key={categoryIndex} className="mb-4">
               <h2>{uniqueCategory}</h2>
               <div className="lg:grid grid-cols-2 xl:grid-cols-4 ">
-                {tickets
-                  .filter((ticket) => ticket.category === uniqueCategory)
-                  .map((filteredTicket, _index) => (
-                    <TicketCard
-                      id={_index}
-                      key={_index}
-                      ticket={filteredTicket}
-                    />
-                  ))}
+                {role === "admin"
+                  ? tickets
+                      .filter((ticket) => ticket.category === uniqueCategory)
+                      .map((filteredTicket, _index) => (
+                        <TicketCard
+                          id={_index}
+                          key={_index}
+                          ticket={filteredTicket}
+                        />
+                      ))
+                  : tickets
+                      .filter(
+                        (ticket) =>
+                          ticket.category === uniqueCategory &&
+                          ticket.userEmail === email
+                      )
+                      .map((filteredTicket, _index) => (
+                        <TicketCard
+                          id={_index}
+                          key={_index}
+                          ticket={filteredTicket}
+                        />
+                      ))}
               </div>
             </div>
           ))
