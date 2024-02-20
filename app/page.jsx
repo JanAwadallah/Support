@@ -22,8 +22,8 @@ const getTickets = async () => {
   }
 };
 
-const Dashboard = async (req, res) => {
-  const session = await getServerSession(req, res, authOptions);
+const Dashboard = async () => {
+  const session = await getServerSession(authOptions);
   const role = session?.user.role;
   const email = session?.user.email;
 
@@ -43,6 +43,7 @@ const Dashboard = async (req, res) => {
   return (
     <div className="p-5">
       <div>
+        <pre>{JSON.stringify(session, null, 2)}</pre>
         <h1>role: {session?.user.role}</h1>
         {tickets && tickets.length > 0 ? (
           uniqueCategories?.map((uniqueCategory, categoryIndex) => (
