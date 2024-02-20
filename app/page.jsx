@@ -1,6 +1,7 @@
 import React from "react";
 import TicketCard from "./(components)/TicketCard";
 import { getServerSession } from "next-auth";
+import { authOptions } from "../app/api/auth/[...nextauth]";
 
 import { headers } from "next/headers";
 
@@ -21,8 +22,8 @@ const getTickets = async () => {
   }
 };
 
-const Dashboard = async (req) => {
-  const session = getServerSession(req);
+const Dashboard = async (req, res) => {
+  const session = getServerSession(req, res, authOptions);
   const role = session?.user.role;
   const email = session?.user.email;
 
