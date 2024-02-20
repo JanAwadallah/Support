@@ -62,7 +62,7 @@ export const authOptions = {
   },
 
   pages: {
-    signIn: "/login",
+    signIn: "https://support.edgewatermc.com.au/login",
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
