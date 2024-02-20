@@ -111,7 +111,7 @@ const EditTicketForm = ({ ticket }) => {
       <form
         onSubmit={handleSubmit}
         method="post"
-        className="flex flex-col gap-3 w-1/2"
+        className="flex flex-col gap-3 w-3/4"
       >
         <input
           id="userEmail"
