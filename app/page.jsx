@@ -27,7 +27,7 @@ const Dashboard = async () => {
   const email = session?.user.role;
 
   const data = await getTickets();
-  console.log(data);
+
   // Make sure we have tickets needed for production build.
   if (!data?.tickets) {
     return <p>No tickets.</p>;
@@ -42,6 +42,7 @@ const Dashboard = async () => {
   return (
     <div className="p-5">
       <div>
+        <h1>{role}</h1>
         {tickets && tickets.length > 0 ? (
           uniqueCategories?.map((uniqueCategory, categoryIndex) => (
             <div key={categoryIndex} className="mb-4">
