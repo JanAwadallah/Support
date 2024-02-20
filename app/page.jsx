@@ -9,7 +9,7 @@ const getTickets = async () => {
 
   try {
     const res = await fetch(
-      `http://localhost:3000/api/Tickets?usremail=${email}`,
+      `https://support.edgewatermc.com.au/api/Tickets?usremail=${email}`,
       {
         cache: "no-store",
         method: "GET",
