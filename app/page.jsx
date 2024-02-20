@@ -1,7 +1,7 @@
 import React from "react";
 import TicketCard from "./(components)/TicketCard";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../app/api/auth/[...nextauth]";
+import { authOptions } from "../app/api/auth/[...nextauth]/route";
 
 import { headers } from "next/headers";
 
