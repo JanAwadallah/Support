@@ -4,11 +4,6 @@ import { getServerSession } from "next-auth";
 import { headers } from "next/headers";
 
 const getTickets = async () => {
-  const session = await getServerSession();
-
-  const role = session?.user.role;
-  const email = session?.user.role;
-
   try {
     const res = await fetch(`https://support.edgewatermc.com.au/api/Tickets`, {
       cache: "no-store",
@@ -26,6 +21,11 @@ const getTickets = async () => {
 };
 
 const Dashboard = async () => {
+  const session = await getServerSession();
+
+  const role = session?.user.role;
+  const email = session?.user.role;
+
   const data = await getTickets();
   console.log(data);
   // Make sure we have tickets needed for production build.
