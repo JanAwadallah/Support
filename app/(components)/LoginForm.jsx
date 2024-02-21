@@ -58,7 +58,7 @@ function LoginForm() {
           width: "90vw",
           maxWidth: "500px",
         }}
-        className="shadow-lg p-5 rounded-lg border-t-4 border-green-400 "
+        className=" justify-center shadow-lg p-5 rounded-lg border-t-4 border-green-400 "
       >
         {isLoading ? (
           <CirclesWithBar
