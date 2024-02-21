@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { CirclesWithBar } from "react-loader-spinner";
+import { redirect } from "next/navigation";
 
 function LoginForm() {
   const router = useRouter();
@@ -37,8 +38,8 @@ function LoginForm() {
 
       if (res.ok) {
         setAuthorised(true);
-        router.replace("/");
         setIsLoading(false);
+        redirect("/");
       } else if (res.error) {
         setError(res.error);
         return;
