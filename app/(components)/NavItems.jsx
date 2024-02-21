@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const NavItems = () => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   return (
     <nav className="flex justify-between bg-nav px-20 py-4">
@@ -32,7 +34,10 @@ const NavItems = () => {
           </div>
           <p
             className=" text-default-text text-lg cursor-pointer"
-            onClick={() => signOut()}
+            onClick={() => {
+              signOut();
+              router.replace("/");
+            }}
           >
             Logout
           </p>
