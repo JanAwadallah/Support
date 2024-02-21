@@ -51,7 +51,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="grid place-items-center h-screen ">
+    <div className="grid place-items-center h-screen justify-center ">
       <div
         style={{
           borderTopWidth: "4px",
