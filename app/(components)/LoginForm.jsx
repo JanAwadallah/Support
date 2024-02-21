@@ -39,7 +39,7 @@ function LoginForm() {
       if (res.ok) {
         setAuthorised(true);
         setIsLoading(false);
-        redirect("/");
+        router.push("/");
       } else if (res.error) {
         setError(res.error);
         return;
