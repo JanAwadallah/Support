@@ -35,7 +35,7 @@ const TicketCard = async ({ ticket }) => {
           <DeleteBlock id={ticket._id} />
         </div>
       </div>
-      <Link href={`/TicketPage/${ticket._id}`} style={{ display: "contents" }}>
+      <Link href={`/ticket/${ticket._id}`} style={{ display: "contents" }}>
         <div className="flex justify-between">
           <h4 className="mb-1">{ticket.title}</h4>
           <h4 className="mb-1">{ticket.userName}</h4>
