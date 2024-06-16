@@ -60,8 +60,8 @@ function RegisterForm() {
         className="shadow-lg p-5 rounded-lg border-t-4 border-green-400 "
       >
         <h1 className="text-xl font-bold my-4">Register</h1>
-        <h2>Temporarily unavailable</h2>
-        {/* <form
+{/*         <h2>Temporarily unavailable</h2> */}
+        <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-3  items-center"
         >
@@ -101,7 +101,7 @@ function RegisterForm() {
           <Link className="text-sm mt-3 text-right" href={"/"}>
             Already registered? <span className=" underline">Login</span>
           </Link>
-        </form> */}
+        </form>
       </div>
     </div>
   );
