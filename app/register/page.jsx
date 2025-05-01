@@ -3,7 +3,8 @@ import RegisterForm from "../(components)/RegisterForm";
 function Register() {
   return (
     <div>
-      <RegisterForm />
+      <h1>Registration is temporarily unavailable</h1>
+{/*       <RegisterForm /> */}
     </div>
   );
 }
