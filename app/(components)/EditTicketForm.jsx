@@ -160,6 +160,7 @@ const EditTicketForm = ({ ticket }) => {
           <option value="Glenroy">Glenroy Medical Clinic</option>
           <option value="Calder">Calder Medical Clinic</option>
           <option value="Trentham">Trentham Medical Clinic</option>
+          <option value="General">General</option>
         </select>
 
         <label>Category</label>
